@@ -6,7 +6,7 @@ var user_schema = new Schema({
 		firstname: String,
     	lastname: String,
     	email: String,
-    	phonenumebr: Number
+    	phonenumber: Number
 });
 
 

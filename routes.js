@@ -1,11 +1,10 @@
-module.exports = function(){
-	var users_registration_controller = require('./controller/usersregistration-controller');
+module.exports = function(app){
+	var users_registration_controller = require('./controller/user_registration_controller');
 
 	app.get('/',function(req,res){
-		res.render('usersregistration');
+		res.render('user_registration');
 	});
-
-	// app.get('/views',users_registration_controller.index)
-// 	app.post('/register_user',function(req, res) {}
+	
+	app.post('/userregistration',users_registration_controller.userregistration)
 
  }
