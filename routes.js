@@ -5,6 +5,8 @@ module.exports = function(app){
 		res.render('user_registration');
 	});
 	
-	app.post('/userregistration',users_registration_controller.userregistration)
+	app.post('/userregistration',users_registration_controller.userregistration,function(req,res){
+		res.redirect('/');
+	})
 
  }

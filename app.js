@@ -5,6 +5,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var app =  express();
 require('./db/connection');
+require('./controller/v2/api');
 
     //configure view 
     app.set('view engine','jade');
