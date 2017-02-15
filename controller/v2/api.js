@@ -18,7 +18,7 @@ var apiUrl_shows = `http://dev-api.msg.com/v2/shows?start_date=${current_date}&e
 
 new CronJob('*/10 * * * * *', function() {
 
-	  console.log('You will see this message every 30 seconds');
+	console.log('You will see this message every 30 seconds');
 
    	User.find({},'email phonenumber',function(err, result){
 	   	if(err){
@@ -33,27 +33,26 @@ new CronJob('*/10 * * * * *', function() {
 
 	   	request(apiUrl_shows, function(error, response) {
 		  if (!error && response.statusCode == 200) {
-		  	// for dates api
-		  	// var body = response.body;
-		  	// var individual_key = JSON.parse(body);
-		  	// var result_key = individual_key.data.result;
-		 	// var flow_selector = result_key['1-8'];
-		 	// var getting_param = flow_selector[0];
-		 	// var property_to_send = getting_param.date
-		 	// console.log(property_to_send);
+			  	// for dates api
+			  	// var body = response.body;
+			  	// var individual_key = JSON.parse(body);
+			  	// var result_key = individual_key.data.result;
+			 	// var flow_selector = result_key['1-8'];
+			 	// var getting_param = flow_selector[0];
+			 	// var property_to_send = getting_param.date
+			 	// console.log(property_to_send);
 
-		 	//for shows api
-		 	var body = response.body;
-		    var individual_key = JSON.parse(body);
-		    var result_key = individual_key.data.results[0];
-		 	var flow_selector = result_key['1-8'];
-		 	var property_to_send_url = result_key.host_url;
-		 	var property_to_send_name = result_key.name;
-		 	// console.log(property_to_send_url);
-		 	// console.log(property_to_send_name);
+		 		//for shows api
+		 		var body = response.body;
+		    	var individual_key = JSON.parse(body);
+		   		var result_key = individual_key.data.results[0];
+		 		var flow_selector = result_key['1-8'];
+		 		var property_to_send_url = result_key.host_url;
+		 		var property_to_send_name = result_key.name;
+		 		// console.log(property_to_send_url);
+		 		// console.log(property_to_send_name);
   			}
 		})
-
 	   		//sendEmail.sendgridemail(users_email);
 	   		sendSms.twiliosms();
    })

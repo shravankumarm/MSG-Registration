@@ -13,5 +13,4 @@ module.exports = function(app){
 		return res.redirect('/views/success_msg.jade');
 		}
 	})
-
  }
