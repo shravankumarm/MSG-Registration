@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var app =  express();
-var config = require('./config');
+//var config = require('./config');
 require('./db/connection');
 require('./controller/v2/api');
 
