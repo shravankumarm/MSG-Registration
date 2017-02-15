@@ -6,7 +6,12 @@ module.exports = function(app){
 	});
 	
 	app.post('/userregistration',users_registration_controller.userregistration,function(req,res){
-		res.redirect('/');
+		if(req){
+
+		}else{
+			alert("registered");
+		return res.redirect('/views/success_msg.jade');
+		}
 	})
 
  }

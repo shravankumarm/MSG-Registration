@@ -1,22 +1,27 @@
 html
   head
-   title User Registration 
+    title User Registration 
 
-  body
+    link(rel='stylesheet', href='/dist/build.msg-register.min.css')
 
-    h1 User Registration 
+  block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 User Registration 
 
-    form(name = "find", action = "/userregistration", method = "post")
-      | Firstname
-      input(type="text", name="firstname", id="firstname")
-      br
-      | Lastname
-      input(type="text", name="lastname", id="lastname")
-      br
-      | Email
-      input(type="text", name="email", id="email")
-      br
-      | Phone Number
-      input(type="number", name="phonenumber", id="phone")
-      br
-      input(type="submit", value="CreateUser")
+      
+        form(method='POST' action='/userregistration')
+          div.form-group
+            label(for='firstname') First Name:
+            input#firstname.form-control(type='text', placeholder='First Name' name='firstname')
+           div.form-group
+            label(for='lastname') Last Name:
+            input#lastname.form-control(type='text', placeholder='Last Name' name='lastname')
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+            label(for='phonenumber') PhoneNumber:
+            input#phonenumber.form-control(type='number',placeholder='PhoneNumber' name='phonenumber')
+          button.btn.btn-primary(type='submit') Register

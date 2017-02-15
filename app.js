@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var app =  express();
+var config = require('./config');
 require('./db/connection');
 require('./controller/v2/api');
 
@@ -11,8 +12,10 @@ require('./controller/v2/api');
     app.set('view engine','jade');
     app.set('views', path.join(__dirname,'views'));
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(bodyParser.urlencoded({extended:false}));
+    app.use('/dist',  express.static(__dirname + '/dist'));
+    app.use(bodyParser.urlencoded({extended:true}));
 	app.use(bodyParser.json());
+    //app.use(twilioNotifications.notifyOnError);
 
     require('./routes')(app);
 
